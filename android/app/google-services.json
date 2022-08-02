@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "755241422449",
+    "project_id": "tech101-firebase-auth",
+    "storage_bucket": "tech101-firebase-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755241422449:android:602539bee5ad0ba1e115d0",
+        "android_client_info": {
+          "package_name": "com.example.firebase_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755241422449-n9pd4kn7g5vf23cmuqcpvtpmmpjkjjpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB17xXm3MG-d4RULIDsR8Btl1iQWlftLQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755241422449-n9pd4kn7g5vf23cmuqcpvtpmmpjkjjpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

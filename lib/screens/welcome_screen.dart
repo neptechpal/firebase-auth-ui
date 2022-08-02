@@ -1,6 +1,6 @@
-import 'package:firebase_auth/screens/login_screen.dart';
-import 'package:firebase_auth/screens/signup_screen.dart';
-import 'package:firebase_auth/widgets/customized_button.dart';
+import 'package:firebase_auth101/screens/login_screen.dart';
+import 'package:firebase_auth101/screens/signup_screen.dart';
+import 'package:firebase_auth101/widgets/customized_button.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -42,9 +42,9 @@ class WelcomeScreen extends StatelessWidget {
                     MaterialPageRoute(builder: (_) => const SignUpScreen()));
               },
             ),
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
+            const SizedBox(height: 20),
+           const Padding(
+              padding:  EdgeInsets.all(10.0),
               child: Text(
                 "Continue as a Guest",
                 style: TextStyle(color: Color(0xff35C2C1), fontSize: 25),

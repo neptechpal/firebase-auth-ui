@@ -1,3 +1,5 @@
+import 'package:firebase_auth101/services/firebase_auth_service.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,17 +15,18 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
           body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: double.infinity,
           child: Column(
@@ -39,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: IconButton(
-                      icon: Icon(Icons.arrow_back_ios_sharp),
+                      icon: const Icon(Icons.arrow_back_ios_sharp),
                       onPressed: () {
                         Navigator.pop(context);
                       }),
@@ -78,9 +81,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 buttonText: "Register",
                 buttonColor: Colors.black,
                 textColor: Colors.white,
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const LoginScreen()));
+                onPressed: () async {
+                  try {
+                    await FirebaseAuthService().signup(
+                        _emailController.text.trim(),
+                        _passwordController.text.trim());
+
+                    if (!mounted) return;
+
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const LoginScreen()));
+                  } on FirebaseException catch (e) {
+                    debugPrint(e.message);
+                  }
+
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (_) => const LoginScreen()));
                 },
               ),
               Padding(
@@ -114,7 +130,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             FontAwesomeIcons.facebookF,
                             color: Colors.blue,
                           ),
@@ -128,7 +144,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           FontAwesomeIcons.google,
                           // color: Colors.blue,
                         ),
@@ -143,7 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             FontAwesomeIcons.apple,
                             // color: Colors.blue,
                           ),
@@ -152,7 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Padding(

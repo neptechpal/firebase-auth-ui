@@ -1,4 +1,4 @@
-import 'package:firebase_auth/widgets/customized_button.dart';
+import 'package:firebase_auth101/widgets/customized_button.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/customized_textfield.dart';
@@ -11,13 +11,13 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-  TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      body: Container(
+      body: SizedBox (
         height: MediaQuery.of(context).size.height,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: IconButton(
-                    icon: Icon(Icons.arrow_back_ios_sharp),
+                    icon: const Icon(Icons.arrow_back_ios_sharp),
                     onPressed: () {
                       Navigator.pop(context);
                     }),
@@ -48,7 +48,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   )),
             ),
             const Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding:  EdgeInsets.all(8.0),
               child: Text(
                   "Dont worry it occurs to us all. We will send you a link to reset your password.",
                   style: TextStyle(
@@ -70,7 +70,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 Navigator.pop(context);
               },
             ),
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
             Padding(
