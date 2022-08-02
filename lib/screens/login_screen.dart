@@ -205,7 +205,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           FontAwesomeIcons.google,
                           // color: Colors.blue,
                         ),
-                        onPressed: () {},
+                        onPressed: () async {
+                          await FirebaseAuthService().logininwithgoogle();
+
+                          if (FirebaseAuth.instance.currentUser != null) {
+                            if (!mounted) return;
+
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen()));
+                          } else {
+                            throw Exception("Error");
+                          }
+                          
+                        },
                       ),
                     ),
                     Container(
